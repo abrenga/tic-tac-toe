@@ -1,17 +1,23 @@
 
+let icsX = "X";
+let laO= "O";
 
-var isX = true
 
 
 $(document).ready(function () {
-    $(".box").click(function () {
-        isX = !isX;
-
-        if (isX) {
-            $(".box").text("X");
-        } else {
-            $(".box").text("O");
-        }
+    $("#box-one").click(function () {
+        $(this).text(icsX);
+        
+        
+      
     });
 
 });
+
+
+let tris ={
+
+
+
+    
+}
