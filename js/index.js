@@ -1,15 +1,17 @@
 
 let icsX = "X";
-let laO= "O";
-
-
-
-
-
+let laO = "O";
 
 let trisArray = [];
 
-    
+
+/*for (let i = 1; i <= 9; i++)
+{
+    const box = document.getElementById("box-" + i);
+    trisArray.push(box);
+}*/
+
+
 
 let boxOne = document.getElementById("box-one");
 trisArray.push(boxOne);
@@ -35,24 +37,27 @@ let tris = {
 
 
 
-    generareIlClick : function(){
+    generareIlClick: function () {
 
         trisArray.forEach(box => {
+            //dobbiamo specificare se al click compare la x o la O come?
+            //se nel quadrato== "X" allora O
             $(document).ready(function () {
                 $(box).click(function () {
-                    $(this).text(icsX);
-                    
-                    
-    
-                  
+                    if (box.innerHTML !== icsX || box.innerHTML == "") {
+                        $(this).text(icsX);
+                    }
+
+
                 });
-            
+
+
             });
-            
+
         });
     },
 
-    
+
 
 
 
@@ -64,4 +69,17 @@ let tris = {
 tris.generareIlClick();
 
 
+
+/*
+
+ho nove caselle vuote 
+appena clicco su una delle caselle compare la X(inizia la X)
+se ci riclicco a x scompare.
+
+se si cambia casella compare la O se si riclicca scompare.
+
+*/
+
+
+let caselle = [];
 
