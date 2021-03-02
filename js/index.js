@@ -55,23 +55,7 @@ let tris = {
 
     iniziaIlgioco : function(){
 
-        for(let box = 0; box<=9; box++){
-
-            $(document).ready(function () {
-                $(box).click(function () {
-                    if(box!==box && box==laX){
-                        this.inserisciOInCasella();
-                    }else{
-
-                        this.inserisciXInCasella();
-
-                    }
-                })
-            });
-
-            
-
-        }
+        
 
        
     }
