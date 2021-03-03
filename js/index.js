@@ -3,7 +3,7 @@ let icsX = "X";
 let laO = "O";
 
 let trisArray = [];
-
+let toccaAllaX = true;
 
 for (let i = 1; i <= 9; i++) {
     const box = document.getElementById("box-" + i);
@@ -17,7 +17,7 @@ for (let i = 1; i <= 9; i++) {
 
 let tris = {
 
-
+  
 
     inserisciXInCasella: function () {
 
@@ -27,7 +27,8 @@ let tris = {
                     box.innerHTML = icsX;
                 })
             });
-
+            
+            toccaAllaX = false;
         });
 
 
@@ -41,9 +42,11 @@ let tris = {
             $(document).ready(function () {
                 $(box).click(function () {
                     box.innerHTML = laO;
+
                 })
             });
-
+            
+            toccaAllaX = true;
         });
 
 
@@ -53,16 +56,30 @@ let tris = {
 
 
 
-    iniziaIlgioco : function(){
+    iniziaIlgioco: function () {
 
-        
 
-       
+        if (toccaAllaX = true) {
+            this.inserisciXInCasella();
+
+        }
+
+        if (toccaAllaX = false) {
+
+            this.inserisciOInCasella()
+
+        }
+
+
     }
 
 
 
+
 };
+
+
+
 
 
 tris.iniziaIlgioco();
