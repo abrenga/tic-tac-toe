@@ -116,8 +116,7 @@ let tris = {
     },
 
 
-    inserisciX: function () {
-        let cella = this.selezionaCella(x, y)
+    inserisciX: function (cella) {
 
         if (cella.content == "" && toccaX == true) {
 
@@ -127,8 +126,8 @@ let tris = {
     },
 
 
-    inserisciY: function () {
-        let cella = this.selezionaCella(x, y)
+    inserisciY: function (cella) {
+        
 
         if (cella.content == "" && toccaX !== true) {
 
