@@ -1,4 +1,4 @@
-let arrayDicelle = [];
+
 
 
 /*let tris = {
@@ -43,7 +43,7 @@ Abbiamo cosi ogni box con le sue coordinate esatte. pushamo poi tutto nell'arrey
 
 
 
-    selezionaCasella: function (x, y) {
+    selezionaCasella: function (x, y, arrayCelle) {
         arrayDicelle.forEach(box => {
             if (box.x == x && box.y == y){
                 return box;
@@ -69,74 +69,242 @@ Abbiamo cosi ogni box con le sue coordinate esatte. pushamo poi tutto nell'arrey
 
     }
 
-}*/
-
-let arrayCelle = [];
-
-let toccaX = true;
+}----------------------------------------------------------------------------------------------------------
 
 
 let tris = {
 
-    creaCella: function () {
-        let box = {
-            X: "0",
-            Y: "0",
-            content: " "
+    arrayCelle: [],
 
-        },
+    toccaX: true,
+
+
+    creaCella: function (x, y) {
+        let box = {
+            X: x,
+            Y: y,
+            content: "",
+            cellaHtml: document.getElementById('box-' + x + '-' + y)
+        }
+        this.bindClickEvent(box);
+        return box;
+
+
+    },
+
+    creaGriglia: function (sizeX, sizeY) {
+        for (let x = 0; x < sizeX; x++) {
+            for (let y = 0; y < sizeY; y++) {
+
+                let cella = this.creaCella(x, y);
+                this.arrayCelle.push(cella);
+            }
+        }
+
+    },
+
+
+    selezionaCella: function (x, y, arrayCelle) {
+        let myBox = null;
+        arrayCelle.forEach(box => {
+            if (box.X == parseInt(x) && box.Y == parseInt(y)) {
+
+
+                myBox = box;
+
+            }
+
+
+        });
+         return myBox;
+
+    },
+
+
+    inserisciX: function (cella, self) {
+
+        if (cella.content == "" && self.toccaX == true) {
+
+            cella.content = "X";
+            cella.cellaHtml.innerHTML = "X";
+            self.toccaX = false;
+
+        }
+
+    },
+
+
+    inserisciO: function (cella, self) {
+
+
+        if (cella.content == "" && self.toccaX == false) {
+
+            cella.content = "O";
+            cella.cellaHtml.innerHTML = "O";
+            self.toccaX = true;
+        }
+
+
+
+    },
+
+    onClick: function (cellaHtml, self) {
+
+        let cellaId = cellaHtml.id.replace('box-', '');
+        let coords = cellaId.split("-");
+        let x = coords[0];
+        let y = coords[1];
+
+        let cella = self.selezionaCella(x, y, self.arrayCelle);
+        self.inserisciX(cella, self);
+        self.inserisciO(cella, self);
+
+
+    },
+
+    bindClickEvent: function (cella) {
+        const self = this;
+        cella.cellaHtml.addEventListener("click", (e) => {
+            self.onClick(e.target, self);
+        });
+
+    }
+
+
+
+
+
+
+}
+
+
+
+*/
+
+
+
+
+let tris = {
+
+    sizeX: 0,
+
+    sizeY: 0,
+
+    arrayCelle: [],
+
+    toccaAllaX: true,
+
+    creaCella: function (x, y) {
+        let box = {
+            X: x,
+            Y: y,
+            content: "",
+            cellaHtml: document.getElementById("box-" + x + "-" + y)
+        }
+        this.initTris(box);
+
         return box;
 
     },
 
     creaGriglia: function (sizeX, sizeY) {
-        for (let x = 0; x <= sizeX; x++) {
-            for (let y = 0; y <= sizeY; y++) {
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        for (let x = 0; x < sizeX; x++) {
+            for (let y = 0; y < sizeY; y++) {
+                let cella = this.creaCella(x, y);
+                cella.x = x;
+                cella.y = y;
+                this.arrayCelle.push(cella);
 
-                let cella = this.creaCella();
-                box.X = x;
-                box.Y = y;
-                arrayCelle.push(cella);
+
             }
         }
 
     },
 
+    inserisciX: function (cella, self) {
 
-    selezionaCella: function (x, y) {
+        if (cella.content == "" && self.toccaAllaX == true) {
+            cella.content = "X";
+            cella.cellaHtml.innerHTML = "x";
+            self.toccaAllaX = false;
+
+        }
+
+
+    },
+
+    inserisciO: function (cella, self) {
+        if (cella.content == "" && self.toccaAllaX == false) {
+            cella.content = "O";
+            cella.cellaHtml.innerHTML = "O";
+            self.toccaAllaX = true;
+
+        }
+
+    },
+
+    selezionaCella: function (x, y, arrayCelle) {
+        let myBox = null;
         arrayCelle.forEach(box => {
-            if (box.X == x && box.Y == y) {
-
-                return box
-
+            if (box.X == parseInt(x) && box.Y == parseInt(y)) {
+                myBox = box;
             }
 
+        });
+        return myBox;
+    },
+
+    onClick: function (cellaHtml, self) {
+        let cellaId = cellaHtml.id.replace('box-', '');
+        let coords = cellaId.split("-");
+        let x = coords[0];
+        let y = coords[1];
+
+        let cella = self.selezionaCella(x, y, self.arrayCelle)
+        this.inserisciX(cella, self);
+        this.inserisciO(cella, self);
+        console.log(cella)
+
+    },
+
+    initTris: function (cella) {
+
+        let self = this;
+
+        cella.cellaHtml.addEventListener("click", (e) => {
+
+            self.onClick(e.target, self);
+            self.vincitaVerticale(self, self.sizeX, self.sizeY);
         })
 
     },
+    vincitaVerticale: function (self, sizeX, sizeY) {
+        for (let x = 0; x < sizeX; x++) {
+            let primaCellaNellaColonna = self.selezionaCella(x, 0, self.arrayCelle);
 
+            for (let y = 0; y < sizeY; y++) {
+                let cella = self.selezionaCella(x, y, self.arrayCelle);
+                if (cella.content == "") {
+                    break;
+                }
 
-    inserisciX: function (cella) {
+                if (primaCellaNellaColonna.content !== cella.content) {
+                    break;
+                }
 
-        if (cella.content == "" && toccaX == true) {
-
-            cella.content = "X";
+                if (y == sizeY - 1) {
+                    alert("Ha vinto la " + cella.content);
+                }
+            }
         }
-        toccaX = false;
-    },
-
-
-    inserisciY: function (cella) {
-        
-
-        if (cella.content == "" && toccaX !== true) {
-
-            cella.content = "Y";
-        }
-
-        toccaX = true;
 
     },
+    
+
+
+
 
 
 
@@ -145,3 +313,6 @@ let tris = {
 
 
 }
+
+
+
