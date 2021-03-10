@@ -22,7 +22,7 @@
 
     },
 
-    creaGriglia: function (sizeX, sizeY, sizeZ) {
+    creaGriglia: function (sizeX, sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         for (let x = 0; x < sizeX; x++) {
@@ -216,36 +216,11 @@ E cosi ho fatto.
 
 Tic-Tac-Toe.
 
-caratteristiche del gioco:
-
-    .il gioco è formato da un quadrato con 3 celle in orizzontale e 3 in vericale.
-
-    .Abbiamo 2 giocatori: giocatore1: "X" e giocatore2: "O", scelgo convenzionalemente che tra i due inizia prima il giocatore 1.
-
-chi vince?
-
-    Vince chi tra i due giocatori disegna una successione di simboli uguali in orizzontale in veritcle o in obliquo.
-
-N.B ogni giocatore ha la possibiltà di cliccare su una casella una sola volta e solo se questa è libera.
-
-
-come iniziare:
-
-. il quadrato è formato da singole celle, dichiariamo quindi una funzione che le "crea", passando come parametri delle coordinate, che    serviranno ad identificare poi l'esatta posizione della cella all'interno del quadrato. 
-
-. Dichiariamo in seguito un'altra funzione che si occuperà di raggruppare le celle per formare una griglia, inserendo come parametri le  grandezze dei due lati (parametri necessari per stabilire quante celle andranno a comporre la griglia stessa).
-
-N.B una griglia non è altro che un'array di celle, è bene dunque posizionare ogni singola cella all'interno di un'array assegnando a questa una posizione o coordinata(x,y). 
-
-Per poter permettere alle celle di posizionarsi correttamente bisonerà tener conto di ben due grandezze, va formato quindi un doppio for.
-Il  primo che  andrà da x = 0 per tutta la lunghezza orizzontale e un'altro for all'interno del primo che, per ogni x avrà ogni y per tutta la lunghezza verticale.
+caratteristiche del gioco:<br><ol><li>il gioco è formato da un quadrato con 3 celle in orizzontale e 3 in vericale.</li><li>Abbiamo 2 giocatori: giocatore1: "X" e giocatore2: "O", scelgo convenzionalemente che tra i due inizia prima il giocatore 1.</li>chi vince?<br>Vince chi tra i due giocatori disegna una successione di simboli uguali in orizzontale in veritcle o in obliquo.<br>N.B ogni giocatore ha la possibiltà di cliccare su una casella una sola volta e solo se questa è libera.<br>Come iniziare:<br><ol><li>il quadrato è formato da singole celle, dichiariamo quindi una funzione che le "crea", passando come parametri delle coordinate, che    serviranno ad identificare poi l'esatta posizione della cella all'interno del quadrato.</li><li>Dichiariamo in seguito un'altra funzione che si occuperà di raggruppare le celle per formare una griglia, inserendo come parametri le  grandezze dei due lati (parametri necessari per stabilire quante celle andranno a comporre la griglia stessa).</li>N.B una griglia non è altro che un'array di celle, è bene dunque posizionare ogni singola cella all'interno di un'array assegnando a questa una posizione o coordinata(x,y).<br>Per poter permettere alle celle di posizionarsi correttamente bisonerà tener conto di ben due grandezze, va formato quindi un doppio for.<br>Il  primo che  andrà da x = 0 per tutta la lunghezza orizzontale e un'altro for all'interno del primo che, per ogni x avrà ogni y per tutta la lunghezza verticale.
 
 Abbiamo Ora il nostro Array di celle.
 
-Per procedere con il progetto sarà necessario a questo punto selezionare la singola cella interessata.
-Per ogni elemento dell'Array dunque, specifichiamo di prendere esattamente le coordinate che ci interessano e ritorniamo la cella stessa.
-
-all'interno di questa poi andrà invocata o la funzione che si occupa di inserire la X o la O a seconda del turno in cui ci troviamo.
+Per procedere con il progetto sarà necessario a questo punto selezionare la singola cella interessata.<br>Per ogni elemento dell'Array dunque, specifichiamo di prendere esattamente le coordinate che ci interessano e ritorniamo la cella stessa.<br>All'interno di questa poi andrà invocata o la funzione che si occupa di inserire la X o la O a seconda del turno in cui ci troviamo.
 
 
 Inserisci la X inserisci la O.
@@ -266,7 +241,10 @@ Vorrei soffermarmi su queste due funzioni che
 
 
 
-
+Beh eccoci qua! <br>Come ho detto precedentemente, la cosa in cui maggiormente faccio difficoltà è il ragionamento logico e matematico che c'è dietro alla programmazione, e ovviamente per riuscire ad abbattere questo muro, non mi resta che esercitarmi, esercitarmi, esercitarmi...<br>Ecco allora che ho decisto di programmare il famoso giochino tic-tac-toe anche detto più comunemente il tris.<br>chi non ha mai giocato a questo gioco?<br>
+Ricordo che in classe era uno dei giochi più in voga da fare con il compagno di banco insieme all'impiccato e a battaglia navale.<br>
+Ma come passare da:<br>'traccio due righe e due line e iniziamo!!'<br>a: <br>'ok! inizializza un'oggetto e sviluppaci dentro tutto il ragionamento che rende possibile il gioco???' <br>I consigli che mi hanno dato sono :<br>
+<ol><li>'Pensa al tris, come è fatto? cosa deve avere per funzionare?<br>Scrivi il progetto, anche su un foglio, disegnalo se è necessario,questo ti sarà utile per tenere il focus su quello che devi fare, devi poi analizzare ogni elemento singolarmente'.</li><li> il ragionamento crealo in javascript, senza pensare al'HTML e al css questi andranno inseriti successivamente.</li><ol>E cosi ho fatto.,
 
 
 
