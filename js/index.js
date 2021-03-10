@@ -277,6 +277,7 @@ let tris = {
 
             self.onClick(e.target, self);
             self.vincitaVerticale(self, self.sizeX, self.sizeY);
+            self.vincitaOrizontale(self, self.sizeY, self.sizeX);
         })
 
     },
@@ -301,7 +302,30 @@ let tris = {
         }
 
     },
-    
+
+    vincitaOrizontale: function (self, sizeY, sizeY) {
+        let primaCellaNellaRiga = self.selezionaCella(0, y, self.arrayCelle);
+        for (y = 0; y < sizeY; y++) {
+            for (x = 0; x < this.sizeY; x++) {
+                let cella = self.selezionaCella(x, y, self.arrayCelle);
+                if (cella.content == "") {
+                    break;
+                }
+
+                if (primaCellaNellaRiga.content !== cella.content) {
+                    break;
+                }
+
+                if (x == sizeX - 1) {
+                    alert("Ha vinto la " + cella.content);
+                }
+
+            }
+
+        }
+
+    }
+
 
 
 
