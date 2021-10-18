@@ -2,23 +2,24 @@ btns = document.querySelectorAll(".box");
 let toccaAllaX = true;
 
 
-function creaCella (){
-   let box = {
-       x: x,
-       y: y
-   }
-   return box;
+function associaCella(x, y) {
+    let cella = document.getElementById('box_' + x + '-' + y);
+    console.log(cella)
+    return cella
+    
 }
 
 
 
-function creaGriglia( sixeX, sizeY){
-    for(y=0; z<= SixeY.lenght; y++){
-        for(x=0; x<= sizeX; x++){
-            creaCella(x, y);
+function creaGriglia(sizeX, sizeY) {
+    for (y = 0; y <= sizeY; y++) {
+        for (x = 0; x <= sizeX; x++) {
+            associaCella(x, y);
         }
     }
 }
+
+creaGriglia(3, 3);
 
 
 function inserisciLaX(btn) {
@@ -37,9 +38,9 @@ function inserisciLaO(btn) {
 btns.forEach(btn => {
     btn.addEventListener("click", function () {
         console.log(btn)
-        if(btn.textContent=="" && toccaAllaX == true){
+        if (btn.textContent == "" && toccaAllaX == true) {
             inserisciLaX(btn);
-        } else{
+        } else {
             inserisciLaO(btn)
         }
 
