@@ -3,9 +3,12 @@ let toccaAllaX = true;
 
 
 function creaCella(x, y) {
-    let cella = document.getElementById("box_" + x + "-" + y)
-    let x = x;
-    let y = y;
+    let cella = {
+        box: document.getElementById("box_" + x + "-" + y),
+        x : x,
+        y : y
+    } 
+   
     celle.push(cella);
 }
 
