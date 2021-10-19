@@ -7,8 +7,6 @@ function creaCella(x, y) {
     celle.push(cella);
 }
 
-
-
 function creaGriglia(sizeX, sizeY) {
     for (x = 0; x < sizeX; x++) {
         for (y = 0; y < sizeY; y++) {
@@ -24,14 +22,12 @@ celle.forEach(cella => {
     cella.addEventListener("click", function () {
         if (cella.textContent == "" && toccaAllaX == true) {
             inserisciLaX(cella);
-
-
         } else {
             inserisciLaO(cella)
         }
     })
-
 });
+
 
 
 creaGriglia(3, 3);
@@ -50,6 +46,6 @@ function inserisciLaO(btn) {
 }
 
 
-
-
-
+function assegnaVincitore() {
+    
+}
