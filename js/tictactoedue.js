@@ -4,6 +4,8 @@ let toccaAllaX = true;
 
 function creaCella(x, y) {
     let cella = document.getElementById("box_" + x + "-" + y)
+    let x = x;
+    let y = y;
     celle.push(cella);
 }
 
@@ -46,6 +48,11 @@ function inserisciLaO(btn) {
 }
 
 
-function assegnaVincitore() {
-    
+function vincitaOrizzontale(x, y, sizeX) {
+
+
+}
+
+function vincitaverticale(x, y, sizeY) {
+
 }
