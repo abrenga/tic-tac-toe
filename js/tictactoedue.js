@@ -1,24 +1,42 @@
-btns = document.querySelectorAll(".box");
+let celle = [];
 let toccaAllaX = true;
 
 
-function creaCella (){
-   let box = {
-       x: x,
-       y: y
-   }
-   return box;
+function creaCella(x, y) {
+    let box = {
+        cella: document.getElementById("box_" + x + "-" + y),
+        posizioneX: x,
+        posizioneY: y
+    }
+
+    celle.push(box);
+
 }
 
 
 
-function creaGriglia( sixeX, sizeY){
-    for(y=0; z<= SixeY.lenght; y++){
-        for(x=0; x<= sizeX; x++){
+function creaGriglia(sizeX, sizeY) {
+    for (x = 0; x < sizeX; x++) {
+        for (y = 0; y < sizeY; y++) {
             creaCella(x, y);
         }
     }
 }
+
+
+console.log(celle)
+celle.forEach(cella => {
+       cella.cella.addEventListener("click", function(){
+           console.log(cella.cella)
+       })
+
+
+});
+
+
+
+
+creaGriglia(3, 3);
 
 
 function inserisciLaX(btn) {
@@ -34,18 +52,20 @@ function inserisciLaO(btn) {
 }
 
 
-btns.forEach(btn => {
+/*btns.forEach(btn => {
     btn.addEventListener("click", function () {
-        console.log(btn)
-        if(btn.textContent=="" && toccaAllaX == true){
-            inserisciLaX(btn);
-        } else{
+        if (btn.textContent == "" && toccaAllaX == true) {
+            let cella= selezionaCella(btn.x,btn.y)
+            inserisciLaX(cella);
+            console.log(cella)
+
+        } else {
             inserisciLaO(btn)
         }
 
     }
     )
-});
+});*/
 
 
 
