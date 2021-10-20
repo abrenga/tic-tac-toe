@@ -52,6 +52,7 @@ function inserisciLaO(btn) {
 
 
 function vincitaOrizzontale(x, y, sizeX) {
+    if()
 
 
 }
