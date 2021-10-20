@@ -5,10 +5,10 @@ let toccaAllaX = true;
 function creaCella(x, y) {
     let cella = {
         box: document.getElementById("box_" + x + "-" + y),
-        x : x,
-        y : y
-    } 
-   
+        x: x,
+        y: y
+    }
+
     celle.push(cella);
 }
 
@@ -20,15 +20,30 @@ function creaGriglia(sizeX, sizeY) {
     }
 }
 
+
+function selezionaCella(x, y, celle) {
+
+    celle.forEach(box => {
+        if (box.x == parseInt(x) && box.y == parseInt(y)) {
+            let myBox = box;
+            return myBox
+        }
+
+    })
+}
+
 creaGriglia(3, 3);
 
 
 celle.forEach(cella => {
-    cella.addEventListener("click", function () {
-        if (cella.textContent == "" && toccaAllaX == true) {
-            inserisciLaX(cella);
+    cella.box.addEventListener("click", function () {
+        if (cella.box.textContent == "" && toccaAllaX == true) {
+           selezionaCella(cella.x,cella.y, celle);
+           inserisciLaX(cella.box)
+            
         } else {
-            inserisciLaO(cella)
+           selezionaCella(box.x, box.y, celle)
+            inserisciLaO(cella.box)
         }
     })
 });
@@ -51,12 +66,16 @@ function inserisciLaO(btn) {
 }
 
 
-function vincitaOrizzontale(x, y, sizeX) {
-    if()
+function vincitaVerticale(x, y, sizeX) {
+    for (x = 0; x < sizeX; x++) {
+        for (y = 0; y < sizeY; y++) {
+            
+        }
+    }
 
 
 }
 
-function vincitaverticale(x, y, sizeY) {
+function vincitaOrizzontale(x, y, sizeY) {
 
 }
