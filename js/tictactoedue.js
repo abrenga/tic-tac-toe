@@ -1,14 +1,17 @@
 let celle = [];
 let toccaAllaX = true;
+let sizeX = 3;
+let sizeY = 3;
 
 
 function creaCella(x, y) {
     let cella = {
         box: document.getElementById("box_" + x + "-" + y),
         x : x,
-        y : y
+        y: y,
+        simbolo:""
     } 
-   
+   console.log(cella)
     celle.push(cella);
 }
 
@@ -24,18 +27,20 @@ creaGriglia(3, 3);
 
 
 celle.forEach(cella => {
-    cella.addEventListener("click", function () {
-        if (cella.textContent == "" && toccaAllaX == true) {
-            inserisciLaX(cella);
+    cella.box.addEventListener("click", function () {
+        if (cella.box.textContent == "" && toccaAllaX == true) {
+            cella.simbolo = inserisciLaX(cella.box); 
+            vincitaOrizzontale(x, y, sizeX)
+            
         } else {
-            inserisciLaO(cella)
+            cella.simbolo =  inserisciLaO(cella.box
+            )
         }
     })
 });
 
 
 
-creaGriglia(3, 3);
 
 
 function inserisciLaX(btn) {
@@ -52,9 +57,15 @@ function inserisciLaO(btn) {
 
 
 function vincitaOrizzontale(x, y, sizeX) {
+    for (x = 0; x < sizeX; x++){
+        for (y = 0; y < sizeY; y++) {
+           
+
+        }
+    }
 
 
-}
+};
 
 function vincitaverticale(x, y, sizeY) {
 
