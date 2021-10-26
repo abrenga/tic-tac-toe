@@ -10,6 +10,7 @@ function creaCella(x, y) {
         cellaSelezionata: ""
     }
     avviaIlgioco(cella);
+    return cella;
 }
 
 function creaGriglia(sizeX, sizeY) {
@@ -61,8 +62,6 @@ function inserisciLaX(cella) {
         cella.cellaSelezionata = "x";
         toccaAllaX = false;
 
-
-
     }
 
 }
@@ -78,8 +77,12 @@ function inserisciLaO(cella) {
 
 
 function avviaIlgioco(cella) {
-    cella.cellaHTML.addEventListener("click", function () {
-        onClick(e.target)
+    let cellaEvento = cella.cellaHTML
+    cellaEvento.addEventListener("click", function () {
+        onClick(cellaEvento);
+        
+
+
     });
 
 }
