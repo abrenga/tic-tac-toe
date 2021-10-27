@@ -10,7 +10,8 @@ function creaCella(x, y) {
         contenutoCella: ""
 
     }
-    return boxCella;
+    inizializza(boxCella);
+    return boxCella
 }
 
 function creaGriglia(sizeX, sizeY) {
@@ -25,10 +26,14 @@ function creaGriglia(sizeX, sizeY) {
 
 }
 
-function selezionaCella(x, y) {
+function selezionaCella(x, y, arrayCelle) {
+    let myBox= null
     arrayCelle.forEach(boxCella => {
-        if (boxCella.x == x && boxCella.y == y) {
-            return boxCella;
+        if (boxCella.x == parseInt(x) && boxCella.y == parseInt(y)) {
+            console.log(boxCella)
+            myBox = boxCella;
+            return myBox
+           
 
         }
     })
@@ -36,14 +41,26 @@ function selezionaCella(x, y) {
 }
 
 
-function onClick(cella) {
+function onClick(cellaHtml) {
+    let cellaId = cellaHtml.id.replace('box-', '');
+        let coords = cellaId.split("-");
+        let x = coords[0];
+        let y = coords[1];
 
-    cella.addEventListener("click", (e) => {
+    let cellaSelezionata = selezionaCella(x,y, arrayCelle)
+    return cellaSelezionata;
 
 
+}
+
+
+
+function inizializza(cella) {
+
+    cella.cellaHTML.addEventListener("click",  (e) =>{
+        onClick(e.target);
 
     })
-
 }
 
 creaGriglia(3, 3)
