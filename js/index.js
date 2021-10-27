@@ -65,10 +65,12 @@ let tris = {
         arrayCelle.forEach(box => {
             if (box.X == parseInt(x) && box.Y == parseInt(y)) {
                 myBox = box;
+                return myBox;
             }
 
         });
-        return myBox;
+        
+       
     },
 
     onClick: function (cellaHtml, self) {
