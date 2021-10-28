@@ -20,7 +20,7 @@ function creaGriglia(sizeX, sizeY) {
         for (let y = 0; y < sizeY; y++) {
             let cella = creaCella(x, y);
             arrayCelle.push(cella)
-            console.log(cella)
+
 
         }
     }
@@ -32,7 +32,7 @@ function selezionaCella(x, y, arrayCelle) {
     let myBox = null
     arrayCelle.forEach(boxCella => {
         if (boxCella.x == parseInt(x) && boxCella.y == parseInt(y)) {
-            console.log(boxCella)
+
             myBox = boxCella;
         }
     })
@@ -67,6 +67,7 @@ function onClick(cellaHtml) {
     let cellaSelezionata = selezionaCella(x, y, arrayCelle);
     inserisciLaX(cellaSelezionata)
     inserisciLaO(cellaSelezionata)
+    console.log(cellaSelezionata)
     return cellaSelezionata;
 
 }
@@ -76,9 +77,31 @@ function onClick(cellaHtml) {
 function inizializza(cella) {
 
     cella.cellaHTML.addEventListener("click", (e) => {
+
         onClick(e.target);
 
     })
+}
+
+
+function vincitaOrizzonatale(sizeX, sizeY) {
+    for (let y = 0; y < sizeY; y++) {
+        let PrimaCellaNellaRiga = selezionaCella(0, y, sizeY);
+        for (let x = 0; x < sixeX; x++) {
+            let cella = selezionaCella(x, y, sizeX)
+            if (cella.content == "") {
+                break;
+            } if (cella.content !== PrimaCellaNellaRiga.content ){
+                break;
+            } if(cella.contett)
+        }
+
+
+
+
+
+    }
+
 }
 
 creaGriglia(3, 3);
