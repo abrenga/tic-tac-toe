@@ -91,9 +91,11 @@ function vincitaOrizzonatale(sizeX, sizeY) {
             let cella = selezionaCella(x, y, sizeX)
             if (cella.content == "") {
                 break;
-            } if (cella.content !== PrimaCellaNellaRiga.content ){
+            } if (cella.content !== PrimaCellaNellaRiga.content) {
                 break;
-            } if(cella.contett)
+            } if (x == sizeX) {
+
+            }
         }
 
 
@@ -105,3 +107,21 @@ function vincitaOrizzonatale(sizeX, sizeY) {
 }
 
 creaGriglia(3, 3);
+
+let x = 0;
+while (x < 3) {
+    // Fai robe
+    let y = 0;
+    while (y < 3) {
+        // Fai altre robe
+        y++;
+    }
+    x++;
+}
+
+for (let x = 0; x < 3; x++) {
+    // Fai robe
+    for (let y = 0; y < 3; y++) {
+        // Fai altre robe
+    }
+}
