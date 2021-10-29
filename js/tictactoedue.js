@@ -1,5 +1,7 @@
 let arrayCelle = [];
 let toccaAllaX = true;
+let sizeX = 0;
+let sizeY = 0;
 
 
 
@@ -15,7 +17,9 @@ function creaCella(x, y) {
     return boxCella
 }
 
-function creaGriglia(sizeX, sizeY) {
+function creaGriglia(lunghezzaX, lunghezzaY) {
+    sizeX = lunghezzaX;
+    sizeY = lunghezzaY;
     for (let x = 0; x < sizeX; x++) {
         for (let y = 0; y < sizeY; y++) {
             let cella = creaCella(x, y);
@@ -79,6 +83,8 @@ function inizializza(cella) {
     cella.cellaHTML.addEventListener("click", (e) => {
 
         onClick(e.target);
+        vincitaOrizzonatale(sizeX, sizeY);
+        vincitaVerticale(sizeX, sizeY)
 
     })
 }
@@ -86,42 +92,46 @@ function inizializza(cella) {
 
 function vincitaOrizzonatale(sizeX, sizeY) {
     for (let y = 0; y < sizeY; y++) {
-        let PrimaCellaNellaRiga = selezionaCella(0, y, sizeY);
-        for (let x = 0; x < sixeX; x++) {
-            let cella = selezionaCella(x, y, sizeX)
-            if (cella.content == "") {
+        let PrimaCellaNellaRiga = selezionaCella(0, y, arrayCelle);
+        for (let x = 0; x < sizeX; x++) {
+            let cella = selezionaCella(x, y, arrayCelle)
+            if (cella.contenutoCella == "") {
                 break;
-            } if (cella.content !== PrimaCellaNellaRiga.content) {
+            } if (cella.contenutoCella !== PrimaCellaNellaRiga.contenutoCella) {
                 break;
-            } if (x == sizeX) {
+            } if (x == sizeX - 1) {
+
+                alert("ha vinto la " + cella.contenutoCella)
 
             }
         }
-
-
-
-
-
     }
+}
+
+function vincitaVerticale(sizeX, sizeY) {
+    for (let x = 0; x < sizeX; x++) {
+        let primaCellaNellaColonna = selezionaCella(x, 0, arrayCelle);
+        for (let y = 0; y < sizeY; y++) {
+            let cella = selezionaCella(x, y, arrayCelle)
+            if (cella.contenutoCella == "") {
+                break;
+            } if (cella.contenutoCella !== primaCellaNellaColonna.contenutoCella) {
+                break;
+            } if (y == sizeY - 1) {
+
+                alert("ha vinto la " + cella.contenutoCella)
+
+            }
+
+        }
+    }
+}
+function vincitaObliquaUno(sizeX) {
+    
 
 }
 
 creaGriglia(3, 3);
 
-let x = 0;
-while (x < 3) {
-    // Fai robe
-    let y = 0;
-    while (y < 3) {
-        // Fai altre robe
-        y++;
-    }
-    x++;
-}
 
-for (let x = 0; x < 3; x++) {
-    // Fai robe
-    for (let y = 0; y < 3; y++) {
-        // Fai altre robe
-    }
-}
+
