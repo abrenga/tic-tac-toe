@@ -84,7 +84,9 @@ function inizializza(cella) {
 
         onClick(e.target);
         vincitaOrizzonatale(sizeX, sizeY);
-        vincitaVerticale(sizeX, sizeY)
+        vincitaVerticale(sizeX, sizeY);
+        vincitaObliquaUno(sizeX);
+        vincitaObliquaDue(sizeX)
 
     })
 }
@@ -127,8 +129,41 @@ function vincitaVerticale(sizeX, sizeY) {
     }
 }
 function vincitaObliquaUno(sizeX) {
+    let primaCellaInObliquoUno = selezionaCella(0, 0, arrayCelle);
     
+    for (let x = 0; x < sizeX; x++) {
+        let y = x
+        let cella = selezionaCella(x, y, arrayCelle)
+        if (cella.contenutoCella == "") {
+            break;
 
+        }
+
+        if (primaCellaInObliquoUno.contenutoCella !== cella.contenutoCella) {
+            break;
+        } if (x == sizeX - 1) {
+            alert("Ha vinto la " + cella.contenutoCella)
+        }
+    }
+}
+
+function vincitaObliquaDue(sizeX) {
+    let primaCellaInObliquoUno = selezionaCella(0, sizeX-1, arrayCelle);
+
+    for (let x = 0; x < sizeX; x++) {
+        let y = sizeY - 1- x;
+        let cella = selezionaCella(x, y, arrayCelle)
+        if (cella.contenutoCella == "") {
+            break;
+
+        }
+
+        if (primaCellaInObliquoUno.contenutoCella !== cella.contenutoCella) {
+            break;
+        } if (x == sizeX - 1) {
+            alert("Ha vinto la " + cella.contenutoCella)
+        }
+    }
 }
 
 creaGriglia(3, 3);
